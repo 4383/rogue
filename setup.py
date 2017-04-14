@@ -15,8 +15,7 @@ class PostDevelopCommand(develop):
         from rogue.commands import init
         from rogue.utilities import console
         console.info("Prepare rogue environnement")
-        console.underline()
-        init.main()
+        init.init(".")
 
 class PostInstallCommand(install):
     """Post-installation for installation mode."""
