@@ -31,9 +31,11 @@ def add(options, glob, local):
     print("ici")
 
 
-def read(options, glob, local):
+@config.command()
+@click.option("--glob", is_flag=True)
+@click.option("--local", is_flag=True)
+def read(glob, local):
     """Add rogue configuration"""
-    console.info("Initialize rogue environment")
     if glob:
         path = DEFAULT_CONFIG_FILE
     elif local:
