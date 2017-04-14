@@ -23,6 +23,12 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+rogue.cfg
+.rogue.cfg
+
+# editor
+*.swp
+*.swa
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
