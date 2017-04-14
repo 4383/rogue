@@ -55,6 +55,7 @@ setup(
         'console_scripts': [
             'rogue=rogue.cli:main',
             'rogue-project=rogue.commands.project:main',
+            'rogue-config=rogue.commands.config:config',
         ]
     },
     include_package_data=True,
