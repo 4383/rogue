@@ -56,6 +56,7 @@ setup(
             'rogue=rogue.cli:main',
             'rogue-project=rogue.commands.project:main',
             'rogue-config=rogue.commands.config:config',
+            'rogue-init=rogue.commands.init:init',
         ]
     },
     include_package_data=True,
