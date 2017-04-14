@@ -1,0 +1,10 @@
+#!/home/herve/dev/rogue/bin/python
+# EASY-INSTALL-ENTRY-SCRIPT: 'cookiecutter','console_scripts','cookiecutter'
+__requires__ = 'cookiecutter'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('cookiecutter', 'console_scripts', 'cookiecutter')()
+    )
