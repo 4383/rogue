@@ -30,5 +30,18 @@ def add(options, glob, local):
     api_config.add.add(path, options)
     print("ici")
 
+
+def read(options, glob, local):
+    """Add rogue configuration"""
+    console.info("Initialize rogue environment")
+    if glob:
+        path = DEFAULT_CONFIG_FILE
+    elif local:
+        path = '.'
+    else:
+        path = '.'
+    path = os.path.join(path, ".rogue.cfg")
+    api_config.controler.read(path)
+
 if __name__ == "__main__":
     main()

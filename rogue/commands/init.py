@@ -3,6 +3,7 @@
 import os
 from os.path import expanduser
 import click
+import rogue.api.config.controler as config
 from rogue.utilities import console
 
 
@@ -14,10 +15,11 @@ DEFAULT_CONFIG_FILE = expanduser("~")
 def init(path):
     """Initialize rogue environment"""
     console.info("Initialize rogue environment")
-    print(path)
     path = os.path.join(path, '.rogue.cfg')
-    with open(path, "w+") as config:
-        config.write("ok")
+    config.initialize(path)
+    #print(path)
+    #with open(path, "w+") as config:
+    #    config.write("ok")
 
 
 
