@@ -33,6 +33,7 @@ with open('HISTORY.rst') as history_file:
 requirements = [
     'Click>=6.0',
     'cookiecutter',
+    'terminaltables',
     # TODO: put package requirements here
 ]
 

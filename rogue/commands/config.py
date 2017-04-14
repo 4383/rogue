@@ -11,7 +11,6 @@ import rogue.api.config as api_config
 @click.group()
 def config():
     """Initialize rogue environment"""
-    console.info("Initialize rogue environment")
 
 @config.command()
 @click.argument("options", nargs=-1)
@@ -19,7 +18,7 @@ def config():
 @click.option("--local", is_flag=True)
 def add(options, glob, local):
     """Add rogue configuration"""
-    console.info("Initialize rogue environment")
+    console.info("Add rogue environment")
     if glob:
         path = DEFAULT_CONFIG_FILE
     elif local:
@@ -36,6 +35,7 @@ def add(options, glob, local):
 @click.option("--local", is_flag=True)
 def read(glob, local):
     """Add rogue configuration"""
+    console.info("Read rogue environment")
     if glob:
         path = DEFAULT_CONFIG_FILE
     elif local:
