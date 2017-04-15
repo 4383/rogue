@@ -1,15 +1,9 @@
 import configparser
 from rogue.api.config import file as configfile
-from terminaltables import AsciiTable
 
 
 def read(cfgfile):
-    cfg = configfile.read(cfgfile)
-    table_data = [['sections']]
-    for section in cfg.sections():
-        table_data.append([section])
-    table = AsciiTable(table_data)
-    print(table.table)
+    return configfile.read(cfgfile)
 
 
 def add(path, options):
