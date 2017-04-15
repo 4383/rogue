@@ -9,8 +9,8 @@ rogue
 .. image:: https://img.shields.io/travis/4383/rogue.svg
         :target: https://travis-ci.org/4383/rogue
 
-.. image:: https://readthedocs.org/projects/rogue/badge/?version=latest
-        :target: https://rogue.readthedocs.io/en/latest/?badge=latest
+.. image:: https://readthedocs.org/projects/rogue-cli-api-devops/badge/?version=latest
+        :target: https://rogue-cli-api-devops.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
 .. image:: https://pyup.io/repos/github/4383/rogue/shield.svg
@@ -22,7 +22,7 @@ DevOps CLI and API
 
 
 * Free software: MIT license
-* Documentation: https://rogue.readthedocs.io.
+* Documentation: https://rogue-cli-api-devops.readthedocs.io.
 
 
 Features
