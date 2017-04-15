@@ -26,6 +26,7 @@ var/
 *.egg
 rogue.cfg
 .rogue.cfg
+test/
 
 # editor
 *.swp

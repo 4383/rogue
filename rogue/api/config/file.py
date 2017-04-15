@@ -1,7 +1,7 @@
 import configparser
 
 def read(configfile):
-    config = configparser.RawConfigParser()
+    config = configparser.ConfigParser()
     config.read(configfile)
     return config
 

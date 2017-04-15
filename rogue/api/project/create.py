@@ -2,12 +2,10 @@
 
 import click
 from cookiecutter import main as cookiecutter
-from rogue.api.project.project import Github
 
 
-def create():
+def create(context):
     """Create a new project"""
-    context = Github()
     print(context)
     print(context.get())
     print(context.project.template)

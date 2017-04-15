@@ -16,6 +16,28 @@ def add(path, options):
     configfile.write(cfg, path)
 
 
-def initialize(cfgfile):
+def default():
     cfg = configparser.ConfigParser()
+    cfg.read_dict({'default_project': {
+        "full_name": "Hervé Beraud",
+        "email": "herveberaud.pro@gmail.com",
+        "github_username": "4383",
+        "project_name": "package",
+        "project_slug": "package",
+        "project_short_description": "Python package.",
+        "pypi_username": "4383",
+        "version": "0.1.0",
+        "use_pytest": "n",
+        "use_pypi_deployment_with_travis": "y",
+        "command_line_interface": "Click",
+        "create_author_file": "y",
+        "open_source_license": "MIT",
+        "template": "https://github.com/audreyr/cookiecutter-pypackage",
+        "basedir": "/home/herve/dev"
+        }})
+    return cfg
+
+
+def initialize(cfgfile):
+    cfg = default()
     configfile.write(cfg, cfgfile)

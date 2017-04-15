@@ -55,7 +55,7 @@ setup(
     entry_points={
         'console_scripts': [
             'rogue=rogue.cli:main',
-            'rogue-project=rogue.commands.project:main',
+            'rogue-project=rogue.commands.project:project',
             'rogue-config=rogue.commands.config:config',
             'rogue-init=rogue.commands.init:init',
         ]
