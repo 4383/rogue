@@ -87,3 +87,16 @@ dist: clean ## builds source and wheel package
 
 install: clean ## install the package to the active Python's site-packages
 	python setup.py install
+
+push: docs ## push to git repository
+    #if git diff-index --quiet HEAD --; then
+    #    echo "Change. abort"
+    #    exit()
+    #else
+    #    git add docs/
+    #    git commit -am "[docs]"
+    #    git push origin master
+    #fi
+    git add docs/
+    git commit -am "[docs]"
+    git push origin master

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import os
 import sys
 import click
 from cookiecutter import main as cookiecutter
@@ -13,6 +14,10 @@ def is_valid(context):
     if 'basedir' not in context:
         ok = False
     return ok
+
+
+def list(path):
+    return [el for el in os.listdir(path) if os.path.isdir(os.path.join(path, el, '.rogue'))]
 
 
 def create(context={}):

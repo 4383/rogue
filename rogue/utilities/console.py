@@ -9,8 +9,12 @@ def error(message):
     click.echo(click.style(message, "red"))
 
 
-def info(message):
+def success(message):
     click.echo(click.style(message, "green"))
+
+
+def info(message):
+    click.echo(click.style(message, "blue"))
 
 
 def underline(color="white"):
@@ -25,3 +29,12 @@ def show_config(config):
         table = AsciiTable(table_data)
         table.title = " " + section + " "
         print(table.table)
+
+
+def show_list(data, headers, title):
+    table_data = [headers]
+    for index, el in enumerate(data, 1):
+        table_data.append([index, el])
+    table = AsciiTable(table_data)
+    table.title = " " + title + " "
+    print(table.table)
