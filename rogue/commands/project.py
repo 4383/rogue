@@ -47,8 +47,9 @@ def display_list(basedir):
 @project.command()
 @click.option('--config', default=".rogue.cfg",
               type=click.File())
-@click.option('-rt', '--realtime', default=False, type=bool)
-def list(config, realtime):
+@click.option('-rt', '--realtime', is_flag=True)
+@click.option('-t', '--timer', default=2, type=int)
+def list(config, realtime, timer):
     console.info("Your projects:")
     context = api_config.read(config.name)
     default = dict(context['default_project'])
@@ -61,7 +62,8 @@ def list(config, realtime):
         while True:
             click.clear()
             display_list(basedir)
-            time.sleep(2)
+            console.info("refresh every {}s".format(timer))
+            time.sleep(timer)
     display_list(basedir)
 
 
