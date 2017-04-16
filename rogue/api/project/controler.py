@@ -4,7 +4,15 @@ import os
 import sys
 import click
 from cookiecutter import main as cookiecutter
+import git
 from rogue.utilities import console
+
+
+UNTRACKED='untracked'
+MODIFIED='modified'
+INVALID='invalid'
+OK='OK'
+HIDDEN=""
 
 
 def is_valid(context):
@@ -18,6 +26,25 @@ def is_valid(context):
 
 def list(path):
     return [el for el in os.listdir(path) if os.path.isdir(os.path.join(path, el, '.rogue'))]
+
+
+def is_tracked(path):
+    try:
+        repo = git.Repo(path)
+        return OK
+    except git.exc.InvalidGitRepositoryError:
+        return HIDDEN
+
+
+def is_modified(path):
+    try:
+        repo = git.Repo(path)
+        if not repo.active_branch.is_valid():
+            return INVALID
+        history = repo.head.ref.commit
+        return OK
+    except git.exc.InvalidGitRepositoryError:
+        return HIDDEN
 
 
 def create(context={}):

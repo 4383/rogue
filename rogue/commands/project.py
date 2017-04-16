@@ -3,6 +3,7 @@
 import os
 import os.path
 import shutil
+import time
 import click
 import rogue.commands.config as cmd_config
 import rogue.api.project.controler as api_project
@@ -32,10 +33,22 @@ def create(config):
     system.store(context, project_path)
 
 
+def display_list(basedir):
+    projects = api_project.list(basedir)
+
+    data = []
+    for index, el in enumerate(projects, 1):
+        modified = api_project.is_modified(os.path.join(basedir, el))
+        tracked = api_project.is_tracked(os.path.join(basedir, el))
+        data.append([index, el, tracked, modified])
+    console.show_list(data, ['index', 'name', 'tracked', 'status'], 'projects')
+
+
 @project.command()
 @click.option('--config', default=".rogue.cfg",
               type=click.File())
-def list(config):
+@click.option('-rt', '--realtime', default=False, type=bool)
+def list(config, realtime):
     console.info("Your projects:")
     context = api_config.read(config.name)
     default = dict(context['default_project'])
@@ -44,8 +57,12 @@ def list(config):
         console.error("Configuration basedir not defined")
         console.error("rogue-config add default_project.basedir <yourdir> --global")
         return
-    projects = api_project.list(basedir)
-    console.show_list(projects, ['index', 'name'], 'projects')
+    if realtime:
+        while True:
+            click.clear()
+            display_list(basedir)
+            time.sleep(2)
+    display_list(basedir)
 
 
 @project.command()

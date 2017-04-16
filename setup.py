@@ -22,7 +22,10 @@ class PostInstallCommand(install):
     def run(self):
         # PUT YOUR POST-INSTALL SCRIPT HERE or CALL A FUNCTION
         install.run(self)
-        print("ohhhhhhhhhhhhhh yeeeeeeeaaaaaahhhhhhhhh")
+        from rogue.commands import init
+        from rogue.utilities import console
+        console.info("Prepare rogue environnement")
+        init.init(".")
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -34,6 +37,7 @@ requirements = [
     'Click>=6.0',
     'cookiecutter',
     'terminaltables',
+    'GitPython',
     # TODO: put package requirements here
 ]
 

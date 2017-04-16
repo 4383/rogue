@@ -3,6 +3,9 @@
 
 import click
 from terminaltables import AsciiTable
+from terminaltables import SingleTable
+
+TableObject = SingleTable
 
 
 def error(message):
@@ -26,15 +29,15 @@ def show_config(config):
         table_data = [['option', 'value']]
         for option in config[section]:
             table_data.append([option, config[section][option]])
-        table = AsciiTable(table_data)
+        table = TableObject(table_data)
         table.title = " " + section + " "
         print(table.table)
 
 
 def show_list(data, headers, title):
     table_data = [headers]
-    for index, el in enumerate(data, 1):
-        table_data.append([index, el])
-    table = AsciiTable(table_data)
+    for el in data:
+        table_data.append(el)
+    table = TableObject(table_data)
     table.title = " " + title + " "
     print(table.table)

@@ -28,7 +28,9 @@ DevOps CLI and API
 Features
 --------
 
-* TODO
+* automatize project creation from template and configuration
+* manage projects
+* store configuration
 
 Credits
 ---------
