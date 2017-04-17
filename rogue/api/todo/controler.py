@@ -88,8 +88,13 @@ class Todo():
             SELECT * FROM tasks
         ''')
 
+    def info(self, identifier):
+        request = '''
+            SELECT * FROM tasks WHERE id IN (?)
+        '''
+        return self.cursor.execute(request, [identifier])
 
-    def info(self, identifiers):
+    def infos(self, identifiers):
         request = '''
             SELECT * FROM tasks WHERE id IN ({})
         '''.format(','.join(['?']*len(identifiers)))

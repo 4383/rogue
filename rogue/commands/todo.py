@@ -43,13 +43,6 @@ def list(config):
         identifier, content, _, _, active, priority = el
         data.append([identifier, priority, "" if active else "X", content])
     console.show_table(data, headers, 'tasks')
-    #if task['hight']:
-    #for el in tasks['hight']:
-    #    display_row(el)
-    #for el in tasks['normal']:
-    #    display_row(el)
-    #for el in tasks['low']:
-    #    display_row(el)
 
 
 @todo.command()
@@ -59,8 +52,6 @@ def list(config):
 def delete(task, config):
     """Delete a task from the todo list"""
     store = api_todo.Todo()
-    #for identifier in tasks:
-        #store.delete(identifier)
     store.delete(task)
 
 
@@ -75,17 +66,16 @@ def done(task, config):
 
 
 @todo.command()
-@click.argument('id', type=int, nargs=+1)
+@click.argument('task', type=str)
 @click.option('--config', default=".rogue.cfg",
               type=click.File())
-def info(id, config):
+def info(task, config):
     """Get task information from the todo list"""
     store = api_todo.Todo()
-    tasks = store.info(tasks)
-    for el in tasks:
-        print("Id: {}".format(el[0]))
-        print("Description: {}".format(el[1]))
-        print("Created: {}".format(el[2]))
+    result = store.info(task).fetchone()
+    print("Id: {}".format(result[0]))
+    print("Description: {}".format(result[1]))
+    print("Created: {}".format(result[2]))
 
 
 if __name__ == "__main__":
