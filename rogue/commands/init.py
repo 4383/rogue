@@ -17,10 +17,6 @@ def init(path):
     console.info("Initialize rogue environment")
     path = os.path.join(path, '.rogue.cfg')
     config.initialize(path)
-    #print(path)
-    #with open(path, "w+") as config:
-    #    config.write("ok")
-
 
 
 if __name__ == "__main__":

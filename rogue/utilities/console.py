@@ -35,6 +35,10 @@ def show_config(config):
 
 
 def show_list(data, headers, title):
+    show_table(data, headers, title)
+
+
+def show_table(data, headers, title):
     table_data = [headers]
     for el in data:
         table_data.append(el)

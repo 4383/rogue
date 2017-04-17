@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+import os
 import configparser
 from rogue.api.config import file as configfile
 
@@ -41,3 +44,7 @@ def default():
 def initialize(cfgfile):
     cfg = default()
     configfile.write(cfg, cfgfile)
+    home = os.path.expanduser("~")
+    rogue = os.path.join(home, '.rogue')
+    if not os.path.isdir(rogue):
+        os.makedirs(rogue)

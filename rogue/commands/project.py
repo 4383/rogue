@@ -41,7 +41,7 @@ def display_list(basedir):
         modified = api_project.is_modified(os.path.join(basedir, el))
         tracked = api_project.is_tracked(os.path.join(basedir, el))
         data.append([index, el, tracked, modified])
-    console.show_list(data, ['index', 'name', 'tracked', 'status'], 'projects')
+    console.show_list(data, ['id', 'name', 'tracked', 'status'], 'projects')
 
 
 @project.command()

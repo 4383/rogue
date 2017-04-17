@@ -38,6 +38,7 @@ requirements = [
     'cookiecutter',
     'terminaltables',
     'GitPython',
+    #'sqlite3',
     # TODO: put package requirements here
 ]
 
@@ -62,6 +63,7 @@ setup(
             'rogue-project=rogue.commands.project:project',
             'rogue-config=rogue.commands.config:config',
             'rogue-init=rogue.commands.init:init',
+            'rogue-todo=rogue.commands.todo:todo',
         ]
     },
     include_package_data=True,
