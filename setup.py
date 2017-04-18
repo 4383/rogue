@@ -1,10 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import os
+from os.path import expanduser
 from setuptools import setup
 from setuptools import find_packages
 from setuptools.command.develop import develop
 from setuptools.command.install import install
+import rogue.api.config.controler as config
 
 
 class PostDevelopCommand(develop):
@@ -12,10 +15,11 @@ class PostDevelopCommand(develop):
     def run(self):
         # PUT YOUR POST-INSTALL SCRIPT HERE or CALL A FUNCTION
         develop.run(self)
-        from rogue.commands import init
-        from rogue.utilities import console
-        console.info("Prepare rogue environnement")
-        init.init(".")
+        #from rogue.commands import init
+        #from rogue.utilities import console
+        print("Prepare rogue environnement")
+        config.initialize(os.path.join(expanduser('~'), '.rogue.cfg'))
+
 
 class PostInstallCommand(install):
     """Post-installation for installation mode."""
